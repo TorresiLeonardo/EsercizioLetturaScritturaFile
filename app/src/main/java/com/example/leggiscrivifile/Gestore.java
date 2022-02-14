@@ -26,4 +26,23 @@ public class Gestore {
         }
         return  sb.toString();
     }
+
+    public String scriviFile(String nomeFile, Context c){
+    String esito= "";
+    FileOutputStream fileO;
+    try{
+        String str="Questo è il testo da scrivere";
+        fileO = c.openFileOutput(nomeFile, Context.MODE_PRIVATE);
+        fileO.write(str.getBytes());
+        fileO.close();
+        esito="file scritto correttamente";
+    } catch (FileNotFoundException e){
+        esito="impossibile creare il file";
+        e.printStackTrace();
+    } catch (IOException e){
+        esito="errore di scrittura file";
+        e.printStackTrace();
+    }
+    return esito;
+    }
 }
