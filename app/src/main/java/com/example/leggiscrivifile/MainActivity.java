@@ -36,4 +36,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    btnScrivi.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View view){
+            String nomeFile =  txtNomeFile.getText().toString();
+            esito= gest.scriviFile(nomeFile, getApplicationContext());
+            Toast.makeText(getApplicationContext(), esito, Toast.LENGHT_LONG).show();
+        }
+    });
 }
